@@ -4,17 +4,38 @@
     box-sizing:border-box;
 }
 
+:root{
+    --bg: rgb(192, 252, 247);
+    --container-bg: rgb(150, 196, 184);
+    --panel-bg: rgb(158, 248, 226);
+    --text: rgb(0, 29, 192);
+    --muted: rgb(6, 0, 59);
+    --accent: rgb(0, 122, 112);
+    --white: #ffffff;
+}
+
+/* Dark theme variables */
+[data-theme="dark"]{
+    --bg: #0b1020;
+    --container-bg: #0f1724;
+    --panel-bg: #111827;
+    --text: #e6eef8;
+    --muted: #cbd5e1;
+    --accent: #00b894;
+    --white: #0b1020;
+}
+
 body{
     font-family:"Arial", sans-serif;
-    background-color: rgb(192, 252, 247);
-    color:rgb(150, 196, 184);
+    background-color: var(--bg);
+    color: var(--muted);
 }
 
 .container{
     max-width:1000px;
     margin:0 auto;
     padding:40px 20px;
-    background-color: rgb(150, 196, 184);
+    background-color: var(--container-bg);
     border-radius:15px; /*bordes redondeados*/
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /*sombra*/
     margin-top: 20px;
@@ -23,7 +44,7 @@ body{
 .navbar{
     display:flex;
     justify-content:center;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
@@ -36,21 +57,21 @@ body{
 
 .nav-links a{ /*selecciona los enlaces dentro de nav-links*/
     text-decoration:none; /*quita subrayado*/;
-    color:blue;
+    color: var(--text);
     font-size:16px;
-    font-weight: 500px;
+    font-weight: 500;
     transition:color 0.3s ease; /*transicion suave*/
 }
 
 .nav-links a:hover{ /*Cambia color cuando esta encima*/
-    color: rgb(255, 2, 2);
+    color: var(--accent);
 }
 
 .header{
     display: grid;
     grid-template-columns:auto auto;
     grid-template-rows: auto auto;
-    background-color:rgb(158, 248, 226);
+    background-color: var(--panel-bg);
     border-radius: 10px;
     row-gap: 4px;
     column-gap:20px;
@@ -77,20 +98,20 @@ body{
     font-size: 48px;
     font-weight: 700;
     margin:5px 0px 0px 10px;
-    color: rgb(0, 29, 192);
+    color: var(--text);
     gap:0px;
     line-height: 1;
-    border-right:2px solid rgb(0, 29, 192);
+    border-right:2px solid rgba(0,0,0,0.08);
 }
 .desc-text{
     grid-column: 1/ 2;
     grid-row: 2/2;
-    color: rgb(6, 0, 59);
+    color: var(--muted);
     margin: 2px 0px 0px 10px ;
     justify-content: center;
     align-items: center;
     margin-bottom: 0;
-    border-right:2px solid rgb(0, 29, 192); 
+    border-right:2px solid rgba(0,0,0,0.08); 
     padding-right: 20px;
 
 }

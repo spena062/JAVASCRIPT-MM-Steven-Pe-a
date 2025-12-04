@@ -15,6 +15,7 @@
                 <li><a href="">Projects</a></li>
                 <li><a href="">Contact me</a></li>
             </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
         </nav>
         <header class="header">
             <h1 class="hero-text">Adrian Steven Peña</h1>
@@ -75,5 +76,28 @@
                     </div>
                 </section>
     </div>
+    <script>
+        (function(){
+            const toggle = document.getElementById('theme-toggle');
+            const root = document.documentElement;
+            const current = localStorage.getItem('theme');
+            if(current === 'dark'){
+                root.setAttribute('data-theme','dark');
+                toggle.textContent = '☀';
+            }
+            toggle.addEventListener('click', function(){
+                const isDark = root.getAttribute('data-theme') === 'dark';
+                if(isDark){
+                    root.removeAttribute('data-theme');
+                    toggle.textContent = '🌙';
+                    localStorage.setItem('theme','light');
+                } else {
+                    root.setAttribute('data-theme','dark');
+                    toggle.textContent = '☀';
+                    localStorage.setItem('theme','dark');
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
